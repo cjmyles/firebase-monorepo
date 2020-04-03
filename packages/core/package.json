@@ -1,0 +1,17 @@
+{
+    "private": true,
+    "name": "firebase-monorepo-core",
+    "author": "Craig Myles",
+    "version": "1.0.0",
+    "license": "MIT",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "scripts": {
+        "lint": "tslint --project tsconfig.json",
+        "prebuild": "rimraf build",
+        "build": "tsc",
+        "prestart": "rimraf build",
+        "start": "tsc -w",
+        "pack": "yarn pack"
+    }
+}

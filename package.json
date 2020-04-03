@@ -1,0 +1,37 @@
+{
+    "private": true,
+    "name": "firebase-monorepo",
+    "author": "Craig Myles",
+    "license": "MIT",
+    "workspaces": {
+        "packages": [
+            "packages/*"
+        ],
+        "nohoist": [
+            "**/firebase-monorepo-core"
+        ]
+    },
+    "scripts": {
+        "workspace:build:core": "yarn workspace firebase-monorepo-core build",
+        "workspace:pack:core": "yarn workspace firebase-monorepo-core pack",
+        "workspace:build:functions": "yarn workspace firebase-monorepo-functions build",
+        "workspace:build:web": "yarn workspace firebase-monorepo-web build",
+        "workspace:start:core": "yarn workspace firebase-monorepo-core start",
+        "workspace:start:functions": "yarn workspace firebase-monorepo-functions start",
+        "workspace:start:web": "yarn workspace firebase-monorepo-web start",
+        "build:core": "yarn workspace:build:core",
+        "pack:core": "yarn workspace:pack:core",
+        "build:functions": "run-s workspace:build:core workspace:build:functions",
+        "build:web": "run-s workspace:build:core workspace:build:web",
+        "start:core": "yarn workspace:build:core",
+        "start:functions": "run-s workspace:build:core workspace:start:functions",
+        "start:web": "run-s workspace:build:core workspace:start:web",
+        "deploy:functions": "firebase deploy --only functions",
+        "deploy:web": "firebase deploy --only hosting"
+    },
+    "devDependencies": {
+        "npm-run-all": "^4.1.5",
+        "rimraf": "^3.0.2",
+        "typescript": "^3.2.2"
+    }
+}

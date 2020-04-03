@@ -1,0 +1,55 @@
+{
+    "functions": {
+        "source": "packages/functions",
+        "predeploy": [
+            "yarn build:core",
+            "yarn build:functions"
+        ],
+        "ignore": [
+            "firebase.json",
+            "**/.*",
+            "**/node_modules/**"
+        ]
+    },
+    "hosting": {
+        "public": "packages/web/build",
+        "predeploy": [
+            "yarn build:core",
+            "yarn build:web"
+        ],
+        "headers": [
+            {
+                "source": "/service-worker.js",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "no-cache"
+                    }
+                ]
+            }
+        ],
+        "ignore": [
+            "firebase.json",
+            "**/.*",
+            "**/node_modules/**"
+        ],
+        "rewrites": [
+            {
+                "source": "/api/**",
+                "function": "app"
+            },
+            {
+                "source": "!/@(api)/**",
+                "destination": "/index.html"
+            }
+        ]
+    },
+    "emulators": {
+        "functions": {
+            "port": 5001
+        },
+        "firestore": {
+            "port": 8080
+        }
+    }
+}
