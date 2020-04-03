@@ -13,10 +13,9 @@ function App() {
                 <p>The following is an excerpt from `firebase-monorepo-core`:</p>
                 <pre>export const foo: string = "bar";</pre>
                 <p>We can import this variable in our web (react) app and illustrate the shared nature of our packages:</p>
-                <pre>import &lbrace; foo &rbrace; from 'firebase-monorepo-core';</pre>
-                <pre>&lt;p&gt;foo is "&lbrace;foo&rbrace;"&lt;/p&gt;</pre>
-                <p>If working correctly the below statement should output the result of the `foo` variable:</p>
-                <pre className="result">$ foo = "{foo}"</pre>
+                <pre>import {"{ foo }"} from 'firebase-monorepo-core';</pre>
+                <p>If working correctly then the result of the `foo` variable should be displayed below:</p>
+                <pre className="result">"{foo}"</pre>
             </header>
         </div >
     );
