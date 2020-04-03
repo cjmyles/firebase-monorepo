@@ -10,20 +10,15 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <p>foo is "{foo}"</p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-        </a>
+                <p>The following is an excerpt from `firebase-monorepo-core`:</p>
+                <pre>export const foo: string = "bar";</pre>
+                <p>We can import this variable in our web (react) app and illustrate the shared nature of our packages:</p>
+                <pre>import {foo} from 'firebase-monorepo-core';</pre>
+                <pre>&lt;p&gt;foo is "{foo}"&lt;/p&gt;</pre>
+                <p>If working correctly the below statement should output the result of the `foo` variable:</p>
+                <pre className="result">foo is "{foo}"</pre>
             </header>
-        </div>
+        </div >
     );
 }
 
