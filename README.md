@@ -64,11 +64,13 @@ In its current state, the `functions` package fails to deploy to firebase:
 
 ![Deployment error](docs/images/functions-deployment-error.png)
 
-`ERR! 404 Not Found - GET https://registry.npmjs.org/firebase-monorepo-core - Not found`
-`ERR! 404 'firebase-monorepo-core@*' is not in the npm registry.`
-`ERR! 404 You should bug the author to publish it (or use the name yourself!)`
-`ERR! 404 It was specified as a dependency of 'functions'`
-`ERR! 404 Note that you can also install from a tarball, folder, http url, or git url.`
+```
+ERR! 404 Not Found - GET https://registry.npmjs.org/firebase-monorepo-core - Not found
+ERR! 404 'firebase-monorepo-core@*' is not in the npm registry.
+ERR! 404 You should bug the author to publish it (or use the name yourself!)
+ERR! 404 It was specified as a dependency of 'functions'
+ERR! 404 Note that you can also install from a tarball, folder, http url, or git url.
+```
 
 There are no errors when the service is run locally, or built for deployment.
 
