@@ -2,8 +2,8 @@
     "functions": {
         "source": "packages/functions",
         "predeploy": [
-            "yarn build:core",
-            "yarn build:functions"
+            "yarn workspace:build:core",
+            "yarn workspace:build:functions"
         ],
         "ignore": [
             "firebase.json",
@@ -14,8 +14,8 @@
     "hosting": {
         "public": "packages/web/build",
         "predeploy": [
-            "yarn build:core",
-            "yarn build:web"
+            "yarn workspace:build:core",
+            "yarn workspace:build:web"
         ],
         "headers": [
             {
