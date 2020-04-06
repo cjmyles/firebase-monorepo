@@ -74,4 +74,20 @@ ERR! 404 Note that you can also install from a tarball, folder, http url, or git
 
 There are no errors when the service is run locally, or built for deployment.
 
-There is also no issues with deployment to the web service, even though it references the `core` package in exactly the same manner.
+# Workaround
+
+It's possible to define `firebase-monorepo-core` as a local dependency, using a tarball version of the package generated via `yarn pack` as per https://github.com/firebase/firebase-tools/issues/968#issuecomment-460323113.
+
+The following line would be added to `packages/functions/package.json`:
+
+```
+"preinstall": "if [ -d ../core ]; then npm pack ../core; fi"
+```
+
+With the dependency changed as follows:
+
+```
+"firebase-monorepo-core": "file:./firebase-monorepo-core-1.0.0.tgz"
+```
+
+It's then possible to execure `yarn` and then `yarn deploy:functions` successfully (see the `features/yarn-pack` branch).

@@ -16,7 +16,8 @@
         "clear:build:watch:serve": "run-s clear build watch:serve",
         "shell": "yarn run build && firebase functions:shell",
         "start": "yarn run clear:build:watch:serve",
-        "logs": "firebase functions:log"
+        "logs": "firebase functions:log",
+        "preinstall": "if [ -d ../core ]; then npm pack ../core; fi"
     },
     "dependencies": {
         "@types/express": "^4.17.1",
@@ -24,7 +25,7 @@
         "firebase": "^7.12.0",
         "firebase-admin": "^8.6.0",
         "firebase-functions": "^3.3.0",
-        "firebase-monorepo-core": "*"
+        "firebase-monorepo-core": "file:./firebase-monorepo-core-1.0.0.tgz"
     },
     "devDependencies": {
         "firebase-functions-test": "^0.1.6"
